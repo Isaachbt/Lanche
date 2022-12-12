@@ -1,23 +1,28 @@
-package com.curso.lanche;
+package com.curso.lanche.activitys;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewStub;
 import android.widget.Button;
-import android.widget.RadioButton;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.curso.lanche.R;
+import com.curso.lanche.adpter.Adapter;
+import com.curso.lanche.databinding.LanchesBinding;
+import com.curso.lanche.model.DadosLanches;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
 
-    private TextView valorCompra,nmrBacon,nmrDogaoSimples,nmrDogaoEspecial,nmrCalabresa,nmrSalada,nmrTudo,nmrCalafrango;
     private double valorFinal = 0;
     private String convert,convetNmr;
     int x_tudo = 0,bacon = 0,dogaoSimples = 0, dogaoEspecial = 0, calabresa = 0, salada = 0, calafango = 0;
@@ -25,45 +30,39 @@ public class MainActivity extends AppCompatActivity {
     private String format = "00.00";
     private NumberFormat formatter = new DecimalFormat(format);
     String formatValoFinal;
+    private LanchesBinding binding;
+    private Adapter adapter;
+    private List<DadosLanches> lista;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.lanches);
-        inicializarComponentes();
+        binding = LanchesBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         convert = String.valueOf(valorFinal);
+        lista = new ArrayList<>();
 
         if (valorFinal == 0){
-            bntFinalizar.setEnabled(false);
+            binding.btnFinalizarCompra.setEnabled(false);
         }
 
 
-        bntFinalizar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+        binding.btnFinalizarCompra.setOnClickListener(view -> {
 
-            Intent i = new Intent(getApplicationContext(),PedidoFinalizadoActivity.class);
-            i.putExtra("valorTotal",valorFinal);
-            startActivity(i);
-            }
+        Intent i = new Intent(getApplicationContext(),PedidoFinalizadoActivity.class);
+        i.putExtra("valorTotal",valorFinal);
+        startActivity(i);
         });
     }
 
-    public void inicializarComponentes(){
-
-        nmrBacon = findViewById(R.id.nmrXBacon);
-        nmrCalabresa = findViewById(R.id.nmrCalabresa);
-        nmrDogaoSimples = findViewById(R.id.nmrDogaoSimples);
-        nmrCalafrango = findViewById(R.id.nmrCalafrango);
-        nmrDogaoEspecial = findViewById(R.id.nmrDogaoEspecial);
-        nmrSalada = findViewById(R.id.nmrSalada);
-        nmrTudo = findViewById(R.id.nmrXTudo);
-        valorCompra = findViewById(R.id.txt_Valor_compra);
-        bntFinalizar = findViewById(R.id.btnFinalizarCompra);
+    @Override
+    protected void onStart() {
+        super.onStart();
+        configRecycler();
     }
 
-    public void onClick(View view){
+   /* public void onClick(View view){
 
 
         switch (view.getId()){
@@ -82,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
                 formatValoFinal = formatter.format(valorFinal);
                 valorCompra.setText("R$ "+formatValoFinal);
                 break;
-            case R.id.dogao:
+            case R.id.imgLanche:
                 dogaoEspecial += 1;
                 totalPedidos();
                 valorFinal += 13.50;
@@ -119,9 +118,9 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
         bntFinalizar.setEnabled(true);
-    }
+    }*/
 
-    public void removeNmrLanche(View view){
+   /* public void removeNmrLanche(View view){
 
         switch (view.getId()){
             case R.id.btnRemoveBacon:
@@ -229,9 +228,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-    }
+    }*/
 
-    public void totalPedidos(){//esse metodo mostra o total de lanche pedido
+    /*public void totalPedidos(){//esse metodo mostra o total de lanche pedido
 
         convetNmr = String.valueOf(bacon);
         nmrBacon.setText(convetNmr);
@@ -253,7 +252,52 @@ public class MainActivity extends AppCompatActivity {
 
         convetNmr = String.valueOf(calafango);
         nmrCalafrango.setText(convetNmr);
+    }*/
 
+    private void configRecycler()
+    {
+        addLanches();
+        RecyclerView.LayoutManager myLayoutManager = new LinearLayoutManager( getApplicationContext());
+        binding.recycler.setLayoutManager( myLayoutManager );
+        binding.recycler.setHasFixedSize( true );
+        adapter = new Adapter(lista,getApplicationContext());
+        binding.recycler.setAdapter(adapter);
+    }
+    private void addLanches()
+    {
+        String descricao;
+        descricao = getString(R.string.xTudo);
+        DadosLanches dados1 = new DadosLanches("X-tudo",descricao, R.drawable.xtudo, "13,50");
+        lista.add(dados1);
+
+
+        descricao = getString(R.string.calafrango);
+        DadosLanches dados2 = new DadosLanches("calafrango", descricao, R.drawable.calafrango, "17,50");
+        lista.add(dados2);
+
+
+        descricao = getString(R.string.xCalabresa);
+        DadosLanches dados3 = new DadosLanches("xCalabresa", descricao, R.drawable.x_calabresa, "15,99");
+        lista.add(dados3);
+
+
+        descricao = getString(R.string.xBacon);
+        DadosLanches dados4 = new DadosLanches("xBacon", descricao, R.drawable.xbacon, "15,00");
+        lista.add(dados4);
+
+
+        descricao = getString(R.string.xSalada);
+        DadosLanches dados5 = new DadosLanches("xSalada", descricao, R.drawable.x_salada, "14,00");
+        lista.add(dados5);
+
+
+        descricao = getString(R.string.dogaoSimples);
+        DadosLanches dados6 = new DadosLanches("dogaoSimples", descricao, R.drawable.dogao_simples, "12,00");
+        lista.add(dados6);
+
+        descricao = getString(R.string.dogaoEspecial);
+        DadosLanches dados7 = new DadosLanches("dogaoEspecial", descricao, R.drawable.dogao_especial, "16,00");
+        lista.add(dados7);
 
     }
 }

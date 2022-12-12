@@ -1,4 +1,6 @@
-package com.curso.lanche;
+package com.curso.lanche.service;
+
+import com.curso.lanche.model.Cep;
 
 import retrofit2.Call;
 import retrofit2.http.GET;

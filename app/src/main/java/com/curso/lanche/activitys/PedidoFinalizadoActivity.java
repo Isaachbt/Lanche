@@ -1,4 +1,4 @@
-package com.curso.lanche;
+package com.curso.lanche.activitys;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,6 +13,10 @@ import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.curso.lanche.R;
+import com.curso.lanche.model.Cep;
+import com.curso.lanche.service.CepServices;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;

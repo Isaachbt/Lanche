@@ -30,3 +30,6 @@ Esse app foi criado apenas por min!
 <img src="https://user-images.githubusercontent.com/77562043/207181166-02aa9290-2d65-403f-990f-12b210055bc6.jpg" width="250px" />
 </div>
 
+
+<b> Melhorias serão aplicadas </b>
+

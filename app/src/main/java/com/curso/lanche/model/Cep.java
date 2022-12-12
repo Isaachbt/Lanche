@@ -1,4 +1,4 @@
-package com.curso.lanche;
+package com.curso.lanche.model;
 
 public class Cep {
 
