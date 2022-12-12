@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Lanche</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="dogaoEspecial">Pão, purê de batata, maionese, ketchup, mostarda, batata palha, milho, ervilha, calabresa, bacon, 2 salsichas, catupiry ou cheddar.</string>
+    <string name="dogaoSimples">Pão, salsicha, purê de batata caseiro, maionese, bacon, calabresa, ketchup, mostarda, batata palha, milho, ervilha e batata palha.</string>
+    <string name="xSalada">Pão, maionese, ketchup, mostarda, milho, ervilha, alface, presunto, mussarela, ovo e hambúrguer.</string>
+    <string name="xBacon">Pão, maionese, ketchup, mostarda, mussarela, hambúrguer e bacon.</string>
+    <string name="xCalabresa">Pão, maionese, ketchup, mostarda, mussarela, hambúrguer e calabresa.</string>
+    <string name="calafrango">Pão, maionese, ketchup, mostarda, milho, ervilha, frango desfiado, calabresa, mussarela e catupiry ou cheddar.</string>
+    <string name="xTudo">Pão, catupiry, maionese, 2 salsichas, hamburguer, calabresa, bacon, milho, ervilha, ovo, presunto, queijo, batata palha, tomate, catchup, mostarda e alface</string>
+
+
+</resources>
