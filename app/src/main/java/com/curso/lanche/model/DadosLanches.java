@@ -4,11 +4,11 @@ public class DadosLanches {
 
     private String nomeLanche;
     private String descricao;
-    private int ftLanche;
+    private String ftLanche;
     private String valor;
     private int quanti_lanche = 0;
 
-    public DadosLanches(String nomeLanche, String descricao, int ftLanche, String valor) {
+    public DadosLanches(String nomeLanche, String descricao, String ftLanche, String valor) {
         this.nomeLanche = nomeLanche;
         this.descricao = descricao;
         this.ftLanche = ftLanche;
@@ -33,11 +33,11 @@ public class DadosLanches {
         this.descricao = descricao;
     }
 
-    public int getFtLanche() {
+    public String getFtLanche() {
         return ftLanche;
     }
 
-    public void setFtLanche(int ftLanche) {
+    public void setFtLanche(String ftLanche) {
         this.ftLanche = ftLanche;
     }
 

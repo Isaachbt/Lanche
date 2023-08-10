@@ -267,36 +267,36 @@ public class MainActivity extends AppCompatActivity {
     {
         String descricao;
         descricao = getString(R.string.xTudo);
-        DadosLanches dados1 = new DadosLanches("X-tudo",descricao, R.drawable.xtudo, "13,50");
+        DadosLanches dados1 = new DadosLanches("X-tudo",descricao, "xtudo", "13,50");
         lista.add(dados1);
 
 
         descricao = getString(R.string.calafrango);
-        DadosLanches dados2 = new DadosLanches("calafrango", descricao, R.drawable.calafrango, "17,50");
+        DadosLanches dados2 = new DadosLanches("calafrango", descricao, "calafrango", "17,50");
         lista.add(dados2);
 
 
         descricao = getString(R.string.xCalabresa);
-        DadosLanches dados3 = new DadosLanches("xCalabresa", descricao, R.drawable.x_calabresa, "15,99");
+        DadosLanches dados3 = new DadosLanches("xCalabresa", descricao, "x_calabresa", "15,99");
         lista.add(dados3);
 
 
         descricao = getString(R.string.xBacon);
-        DadosLanches dados4 = new DadosLanches("xBacon", descricao, R.drawable.xbacon, "15,00");
+        DadosLanches dados4 = new DadosLanches("xBacon", descricao, "xbacon", "15,00");
         lista.add(dados4);
 
 
         descricao = getString(R.string.xSalada);
-        DadosLanches dados5 = new DadosLanches("xSalada", descricao, R.drawable.x_salada, "14,00");
+        DadosLanches dados5 = new DadosLanches("xSalada", descricao, "x_salada", "14,00");
         lista.add(dados5);
 
 
         descricao = getString(R.string.dogaoSimples);
-        DadosLanches dados6 = new DadosLanches("dogaoSimples", descricao, R.drawable.dogao_simples, "12,00");
+        DadosLanches dados6 = new DadosLanches("dogaoSimples", descricao, "dogao_simples", "12,00");
         lista.add(dados6);
 
         descricao = getString(R.string.dogaoEspecial);
-        DadosLanches dados7 = new DadosLanches("dogaoEspecial", descricao, R.drawable.dogao_especial, "16,00");
+        DadosLanches dados7 = new DadosLanches("dogaoEspecial", descricao, "dogao_especial", "16,00");
         lista.add(dados7);
 
     }

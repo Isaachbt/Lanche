@@ -40,8 +40,12 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
         holder.binding.totalLanche.setText(String.valueOf(dados.getQuanti_lanche()));
         holder.binding.descricaoProduto.setText(dados.getDescricao());
         holder.binding.valorLanche.setText(dados.getValor());
-        Drawable drawable = Drawable.createFromPath(String.valueOf(dados.getFtLanche()));
-        holder.binding.imgLanche.setImageDrawable(drawable);
+        int imageResource = context.getResources().getIdentifier(
+                dados.getFtLanche(),
+                "drawable",
+                context.getPackageName()
+        );
+        holder.binding.imgLanche.setImageResource(imageResource);
 
     }
 
