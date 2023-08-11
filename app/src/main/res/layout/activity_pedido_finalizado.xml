@@ -99,6 +99,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawableRight="@drawable/ic_nota"
+                android:drawablePadding="8dp"
                 android:text="Dinheiro" />
 
 
@@ -107,7 +108,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:drawableRight="@drawable/ic_cartao"
-                android:text="Cartão credito ou debito" />
+                android:drawablePadding="8dp"
+                android:text="Credito/Debito" />
         </RadioGroup>
 
         <LinearLayout
@@ -135,7 +137,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="5dp"
                     android:layout_weight="1"
-                    android:text="R$ 9090"
+                    android:text="R$ 0.00"
                     android:textAlignment="textEnd"
                     android:textColor="#2CAC22" />
 
@@ -158,7 +160,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="5dp"
                     android:layout_weight="1"
-                    android:text="R$ 3,00"
+                    android:text="R$ 3.00"
                     android:textAlignment="textEnd"
                     android:textColor="#FF0000" />
 
@@ -181,7 +183,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="5dp"
                     android:layout_weight="1"
-                    android:text="R$ 0,99"
+                    android:text="R$ 0.99"
                     android:textAlignment="textEnd"
                     android:textColor="#FF0000" />
 
@@ -205,7 +207,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="5dp"
                     android:layout_weight="1"
-                    android:text="R$ 89898"
+                    android:text="R$ 0.00"
                     android:textAlignment="textEnd"
                     android:textColor="#FF0000" />
 
@@ -214,6 +216,29 @@
 
 
         </LinearLayout>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/ic_abrirListaLaches"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginEnd="5dp"
+                android:src="@drawable/ic_arrow_baixo"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerVerLanches"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
         <ViewStub
             android:id="@+id/viewStubPagamento"

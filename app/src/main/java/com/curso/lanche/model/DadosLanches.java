@@ -1,21 +1,41 @@
 package com.curso.lanche.model;
 
-public class DadosLanches {
+import android.os.Parcel;
+import android.os.Parcelable;
 
+public class DadosLanches implements Parcelable {
     private String nomeLanche;
     private String descricao;
     private String ftLanche;
-    private String valor;
+    private double valor;
     private int quanti_lanche = 0;
 
-    public DadosLanches(String nomeLanche, String descricao, String ftLanche, String valor) {
+    public DadosLanches(String nomeLanche, String descricao, String ftLanche, double valor) {
         this.nomeLanche = nomeLanche;
         this.descricao = descricao;
         this.ftLanche = ftLanche;
         this.valor = valor;
-
-
     }
+
+    protected DadosLanches(Parcel in) {
+        nomeLanche = in.readString();
+        descricao = in.readString();
+        ftLanche = in.readString();
+        valor = in.readDouble();
+        quanti_lanche = in.readInt();
+    }
+
+    public static final Creator<DadosLanches> CREATOR = new Creator<DadosLanches>() {
+        @Override
+        public DadosLanches createFromParcel(Parcel in) {
+            return new DadosLanches(in);
+        }
+
+        @Override
+        public DadosLanches[] newArray(int size) {
+            return new DadosLanches[size];
+        }
+    };
 
     public String getNomeLanche() {
         return nomeLanche;
@@ -41,11 +61,11 @@ public class DadosLanches {
         this.ftLanche = ftLanche;
     }
 
-    public String getValor() {
+    public double getValor() {
         return valor;
     }
 
-    public void setValor(String valor) {
+    public void setValor(double valor) {
         this.valor = valor;
     }
 
@@ -57,4 +77,17 @@ public class DadosLanches {
         this.quanti_lanche = quanti_lanche;
     }
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(nomeLanche);
+        dest.writeString(descricao);
+        dest.writeString(ftLanche);
+        dest.writeDouble(valor);
+        dest.writeInt(quanti_lanche);
+    }
 }
